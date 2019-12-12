@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }} - Estilos</title>
+	</head>
+	<body>
+		<div>Menu: <a href="{{ url_for('inicio') }}">Inicio</a>
+		<a href="{{ url_for('nosotros') }}">Historia</a>
+		<a href="{{ url_for('telas') }}">Nuestras Telas</a>
+		<a href="{{ url_for('ingresar') }}">Ingresar</a>
+		<a href="{{ url_for('registrate') }}">Registrate</a>
+
+		</div>
+		<hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+		{% block content %}{% endblock %}
+	</body>
+</html>
+
